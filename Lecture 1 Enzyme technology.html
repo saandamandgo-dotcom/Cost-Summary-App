@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enzyme Technology Summary - ملخص تكنولوجيا الإنزيمات</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Configuration for a cool theme -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-blue': '#10b981', // Emerald green for vibrancy
+                        'background-dark': '#0f172a', // Slate 900
+                        'card-bg': '#1e293b', // Slate 800
+                        'text-light': '#f1f5f9', // Slate 100
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a;
+        }
+        /* Ensure RTL is off for LTR content flow */
+        .content-rtl {
+             direction: rtl; 
+             text-align: right;
+        }
+        .accordion-header {
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+        }
+        .expanded {
+            max-height: 1000px; /* Large enough value */
+            padding-bottom: 1rem;
+        }
+        .rotate-180 {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body class="bg-background-dark text-text-light p-4 sm:p-8">
+
+    <!-- Header Section -->
+    <header class="text-center mb-12">
+        <h1 class="text-4xl sm:text-6xl font-extrabold text-primary-blue mb-2 animate-pulse">Enzyme Technology</h1>
+        <p class="text-lg sm:text-xl text-slate-400">Lecture 1 Summary: Fundamentals and Applications (ملخص المحاضرة الأولى: الأساسيات والتطبيقات)</p>
+    </header>
+
+    <!-- Main Content Grid -->
+    <main class="max-w-4xl mx-auto">
+        
+        <!-- Introduction Card -->
+        <div class="bg-card-bg p-6 rounded-xl shadow-2xl mb-8 border-l-4 border-primary-blue">
+            <h2 class="text-2xl font-bold mb-3 text-primary-blue">Introduction: What is Enzyme Technology? (مقدمة: ما هي تكنولوجيا الإنزيمات؟)</h2>
+            <p class="text-slate-300 leading-relaxed">
+                Enzyme Technology is a branch of Biotechnology (التكنولوجيا الحيوية) focused on the study, production, and application of enzymes. Enzymes are <strong class="text-primary-blue">biological catalysts</strong> (محفزات بيولوجية) that speed up biochemical reactions with high specificity and efficiency.
+            </p>
+            <div class="mt-4 text-sm text-slate-400">
+                <p>💡 <span class="font-semibold">Key Advantage (الميزة الرئيسية):</span> Eco-friendly (صديقة للبيئة), cost-effective (فعالة من حيث التكلفة), and reduces energy consumption (تقلل استهلاك الطاقة).</p>
+            </div>
+        </div>
+
+        <!-- Accordion Sections -->
+        <div id="accordion-container" class="space-y-4">
+
+            <!-- Section 1: Scope and Applications -->
+            <div class="bg-card-bg rounded-xl shadow-lg overflow-hidden">
+                <div id="header-1" class="accordion-header flex justify-between items-center p-5 bg-slate-700 hover:bg-slate-600 rounded-t-xl">
+                    <h3 class="text-xl font-semibold">Scope and Importance of Enzymes (نطاق وأهمية الإنزيمات)</h3>
+                    <svg class="w-6 h-6 transform transition-transform duration-300 text-primary-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </div>
+                <div id="content-1" class="accordion-content p-5 pt-0">
+                    <p class="mb-3 text-slate-300 border-l-4 border-primary-blue pl-3">Enzymes are used in a wide range of fields due to their high specificity and efficiency:</p>
+                    <ul class="space-y-2 text-slate-400 list-disc pl-8">
+                        <li>**Industrial Applications (التطبيقات الصناعية):** Used in food, beverage, textile, and detergent industries (صناعات المنظفات).</li>
+                        <li>**Medical Applications (التطبيقات الطبية):** Important in diagnostics (التشخيص), drug development, and disease treatment (علاج الأمراض).</li>
+                        <li>**Environmental Applications (التطبيقات البيئية):** Help in waste management (إدارة النفايات), pollution control (مكافحة التلوث), and renewable energy technology (تكنولوجيا الطاقة المتجددة).</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Section 2: Mechanism of Action -->
+            <div class="bg-card-bg rounded-xl shadow-lg overflow-hidden">
+                <div id="header-2" class="accordion-header flex justify-between items-center p-5 bg-slate-700 hover:bg-slate-600">
+                    <h3 class="text-xl font-semibold">Mechanism of Enzyme Action (آلية عمل الإنزيمات)</h3>
+                    <svg class="w-6 h-6 transform transition-transform duration-300 text-primary-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </div>
+                <div id="content-2" class="accordion-content p-5 pt-0">
+                    <ul class="space-y-2 text-slate-400 list-disc pl-8">
+                        <li>**Active Site (الموقع النشط):** The region of the enzyme that binds to the substrate (الركيزة) and where the reaction occurs.</li>
+                        <li>**Induced-Fit Model (نموذج التوافق المستحث):** Upon substrate binding, the active site slightly changes shape to fit the substrate perfectly, increasing catalytic efficiency (كفاءة التحفيز).</li>
+                        <li>**Enzyme Function (وظيفة الإنزيم):** Enzymes work by lowering the Activation Energy (طاقة التنشيط) required to start the reaction.</li>
+                    </ul>
+                    <p class="text-center mt-4 text-slate-500">[Image of Enzyme Substrate Complex]</p>
+                </div>
+            </div>
+
+            <!-- Section 3: Factors Affecting Activity -->
+            <div class="bg-card-bg rounded-xl shadow-lg overflow-hidden">
+                <div id="header-3" class="accordion-header flex justify-between items-center p-5 bg-slate-700 hover:bg-slate-600">
+                    <h3 class="text-xl font-semibold">Factors Affecting Enzyme Activity (العوامل المؤثرة على نشاط الإنزيم)</h3>
+                    <svg class="w-6 h-6 transform transition-transform duration-300 text-primary-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </div>
+                <div id="content-3" class="accordion-content p-5 pt-0">
+                    <ul class="space-y-2 text-slate-400 list-disc pl-8">
+                        <li>**Temperature (درجة الحرارة):** Each enzyme has an optimum temperature (درجة حرارة مثلى). High temperatures can cause Denaturation (تمسخ) of the enzyme.</li>
+                        <li>**pH (الأس الهيدروجيني):** Each enzyme has an optimum pH (pH أمثل). Extreme changes affect the charge of functional groups in the active site.</li>
+                        <li>**Substrate Concentration (تركيز الركيزة):** Increased concentration leads to faster reaction rates until Saturation (التشبع) is reached.</li>
+                        <li>**Enzyme Concentration (تركيز الإنزيم):** Reaction rate is directly proportional to enzyme concentration when the substrate is abundant.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Section 4: Enzyme Inhibition -->
+            <div class="bg-card-bg rounded-xl shadow-lg overflow-hidden">
+                <div id="header-4" class="accordion-header flex justify-between items-center p-5 bg-slate-700 hover:bg-slate-600 rounded-b-xl">
+                    <h3 class="text-xl font-semibold">Enzyme Inhibition (تثبيط الإنزيمات)</h3>
+                    <svg class="w-6 h-6 transform transition-transform duration-300 text-primary-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </div>
+                <div id="content-4" class="accordion-content p-5 pt-0">
+                    <p class="mb-3 text-primary-blue font-semibold">Types of Reversible Inhibition (أنواع التثبيط العكسي):</p>
+                    <ul class="space-y-2 text-slate-400 list-disc pl-8 mb-4">
+                        <li>**Competitive:** The inhibitor competes with the substrate for the Active Site (الموقع النشط).</li>
+                        <li>**Non-competitive:** The inhibitor binds to another site (Allosteric site - موقع آخر) and changes the enzyme's shape, reducing its efficiency.</li>
+                        <li>**Uncompetitive:** The inhibitor binds only to the Enzyme-Substrate Complex (مركب الإنزيم-الركيزة).</li>
+                    </ul>
+                    <p class="mb-3 text-primary-blue font-semibold">Other Types (أنواع أخرى):</p>
+                    <ul class="space-y-2 text-slate-400 list-disc pl-8">
+                        <li>**Irreversible Inhibition (تثبيط لا رجعة فيه):** The inhibitor permanently binds to and deactivates the enzyme.</li>
+                        <li>**Allosteric/Feedback Inhibition (تثبيط خيفي/تغذية راجعة):** The end product of a metabolic pathway inhibits the first enzyme in that pathway (a natural regulation mechanism - آلية تنظيم طبيعية).</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div> <!-- End Accordion Container -->
+
+        <!-- Footer -->
+        <footer class="text-center mt-12 text-slate-500 text-sm border-t border-slate-700 pt-6">
+            <p>This summary covers the key points of Enzyme Technology. <span class="text-primary-blue">Good luck with your study! (بالتوفيق في دراستك!)</span></p>
+        </footer>
+
+    </main>
+
+    <!-- JavaScript for Accordion Functionality -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const headers = document.querySelectorAll('.accordion-header');
+            headers.forEach(header => {
+                header.addEventListener('click', () => {
+                    const content = document.getElementById(`content-${header.id.split('-')[1]}`);
+                    const icon = header.querySelector('svg');
+
+                    // Toggle visibility
+                    if (content.classList.contains('expanded')) {
+                        content.classList.remove('expanded');
+                        content.style.maxHeight = '0';
+                        icon.classList.remove('rotate-180');
+                    } else {
+                        // Close all other sections
+                        document.querySelectorAll('.accordion-content').forEach(c => {
+                            if (c !== content) {
+                                c.classList.remove('expanded');
+                                c.style.maxHeight = '0';
+                            }
+                        });
+                        document.querySelectorAll('.accordion-header svg').forEach(i => {
+                            if (i !== icon) {
+                                i.classList.remove('rotate-180');
+                            }
+                        });
+
+                        // Open the current section
+                        content.classList.add('expanded');
+                        // Use scrollHeight to dynamically calculate max height
+                        content.style.maxHeight = content.scrollHeight + 50 + 'px'; 
+                        icon.classList.add('rotate-180');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
