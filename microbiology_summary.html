@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale-1.0">
+    <title>Dynamic Microbiology Summary</title>
+    <!-- تحميل Tailwind CSS CDN لتصميم خرافي وجديد -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Inter:wght[400;600;800]&display=swap" rel="stylesheet">
+    <style>
+        /* التنسيقات العامة للخطوط والخلفية - تصميم بريميوم (بنفسجي وذهبي) */
+        body {
+            font-family: 'Inter', 'Cairo', sans-serif; /* الإنجليزية أولاً */
+            background: linear-gradient(135deg, #1e1b4b, #4c1d95, #262626); /* خلفية بنفسجية داكنة */
+            color: #e5e7eb; /* لون نص فاتح (رمادي فاتح) */
+            min-height: 100vh;
+            padding: 20px 0;
+        }
+        /* تنسيق خاص للأقسام التفاعلية (Accordion) */
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), padding 0.5s ease-in-out; /* حركة سلسة ومميزة */
+        }
+        .accordion-header.active .icon {
+            transform: rotate(180deg);
+        }
+        .accordion-header {
+            cursor: pointer;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .accordion-header:hover {
+            background-color: rgba(251, 191, 36, 0.05); /* تأثير تحويم خفيف بلون التمييز الذهبي */
+            box-shadow: 0 0 15px rgba(251, 191, 36, 0.3);
+        }
+        /* لتأثير الحافة اللامعة - لون ذهبي/كهرماني جديد */
+        .card-glow-premium {
+            box-shadow: 0 0 50px rgba(251, 191, 36, 0.5); /* #fbbf24 */
+        }
+        .text-english {
+            font-family: 'Inter', sans-serif;
+            text-align: left; /* المحتوى الإنجليزي من اليسار لليمين */
+            direction: ltr;
+        }
+        .text-arabic-key {
+            font-family: 'Cairo', sans-serif;
+            text-align: right; /* العناوين العربية من اليمين لليسار */
+            direction: rtl;
+        }
+        .premium-gold {
+            color: #fbbf24; /* كهرماني-400 كلون تمييز أساسي */
+        }
+        .bg-premium-gold {
+            background-color: #fbbf24;
+        }
+        .border-premium-gold {
+             border-color: #fbbf24;
+        }
+        /* تنسيق الرسوم التوضيحية (SVG) - تصميم جديد */
+        .svg-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            width: 160px; /* زيادة بسيطة في العرض */
+            padding: 10px;
+            border: 1px solid #4c1d95; /* بنفسجي داكن */
+            border-radius: 10px;
+            background-color: #1f2937; /* رمادي داكن للخلفية */
+            box-shadow: 0 0 10px rgba(251, 191, 36, 0.3);
+            transition: transform 0.3s ease;
+        }
+        .svg-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(251, 191, 36, 0.4);
+        }
+        .badge-arabic {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            background-color: #fbbf24; /* لون ذهبي */
+            color: #1e1b4b; /* لون بنفسجي داكن للنص */
+            font-family: 'Cairo', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 700;
+            box-shadow: 0 4px 10px rgba(251, 191, 36, 0.4);
+            transition: all 0.3s ease;
+            width: 100%;
+            justify-content: center;
+            text-align: center;
+            margin-bottom: 10px; /* فصل البادج عن الـ SVG */
+        }
+        .badge-arabic:hover {
+            background-color: #f59e0b; /* ذهبي أغمق عند التحويم */
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container mx-auto p-4 max-w-5xl">
+        <header class="text-center mb-12 p-6 rounded-3xl bg-gray-900 shadow-2xl card-glow-premium border border-premium-gold">
+            <h1 class="text-4xl lg:text-5xl font-extrabold premium-gold mb-2 text-english">Microbiology: The Dynamic Summary</h1>
+            <p class="text-gray-400 text-lg text-arabic-key">ملخص حيوي وتفاعلي لعلم الأحياء الدقيقة</p>
+        </header>
+
+        <main id="accordion-container" class="space-y-8">
+            <!-- Lecture 1: Introduction and Historical Background -->
+            <div class="bg-slate-800/70 rounded-2xl shadow-2xl overflow-hidden transform hover:scale-[1.02] transition duration-500 border-t-4 border-premium-gold">
+                <div class="accordion-header p-6 flex justify-between items-center bg-gray-900/50" data-target="lec1">
+                    <h2 class="text-2xl font-bold premium-gold text-english">Lecture 1: Fundamentals & Pioneers</h2>
+                    <svg class="icon w-8 h-8 premium-gold transition-transform duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </div>
+                <div id="lec1" class="accordion-content">
+                    <div class="p-6 space-y-6">
+                        <section class="border-b border-gray-600 pb-4 text-english">
+                            <h3 class="text-xl font-semibold mb-3 text-white">Detailed English Summary</h3>
+                            <p class="text-gray-300 leading-relaxed mb-4">
+                                **Microbiology** is the scientific discipline dedicated to the study of microscopic organisms (microbes) such as bacteria, viruses, fungi, algae, and protozoa. This field is fundamental to understanding health, disease, and environmental processes.
+                            </p>
+                            
+                            <h4 class="text-lg font-bold premium-gold mb-2">Key Historical Contributions:</h4>
+                            <ul class="list-disc list-inside text-gray-400 space-y-2 ml-4">
+                                <li>
+                                    **Robert Koch:** Revolutionized the field by definitively proving the direct link between a specific microbe (*Bacillus anthracis*) and a specific disease (anthrax). He was the first to utilize **Agar** as a solidifying agent for culture media, a technique still used globally.
+                                </li>
+                                <li>
+                                    **Paul Ehrlich:** Searched for a "magic bullet" (a chemical that targets only the pathogen). He synthesized **Salvarsan**, the first effective chemotherapeutic agent against syphilis, laying the groundwork for chemotherapy.
+                                </li>
+                                <li>
+                                    **Sir Alexander Fleming:** Accidentally discovered **Penicillin**, a natural antibiotic produced by the *Penicillium* mold. This discovery launched the antibiotic era, transforming medicine.
+                                </li>
+                            </ul>
+
+                            <!-- Koch's Postulates Detail - Detailed -->
+                            <div class="mt-6 p-4 rounded-xl bg-slate-900 border border-premium-gold/50">
+                                <h4 class="text-lg font-bold premium-gold mb-3">Koch's Postulates (The Four Canons of Etiology):</h4>
+                                <ol class="list-decimal list-inside text-gray-400 space-y-2 ml-4">
+                                    <li>The microorganism must be present in every case of the disease but absent from healthy individuals.</li>
+                                    <li>The suspected microorganism must be isolated from the diseased host and grown in a pure culture.</li>
+                                    <li>When the isolated organism (from the pure culture) is inoculated into a suitable, healthy laboratory animal, it must produce a similar disease.</li>
+                                    <li>The same microorganism must be re-isolated in pure culture from the lesions of the experimental animal.</li>
+                                </ol>
+                                <div class="mt-4 svg-container mx-auto">
+                                    <svg width="120" height="80" viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#fbbf24" stroke-width="3">
+                                        <!-- Healthy Host (1) -->
+                                        <circle cx="15" cy="40" r="10" fill="#10b981" />
+                                        <text x="15" y="40" text-anchor="middle" dy=".3em" font-size="12" fill="#1e1b4b">1</text>
+                                        <!-- Diseased Host (2) -->
+                                        <circle cx="45" cy="40" r="10" fill="#ef4444" />
+                                        <text x="45" y="40" text-anchor="middle" dy=".3em" font-size="12" fill="#1e1b4b">2</text>
+                                        <!-- Culture Dish (3) -->
+                                        <rect x="70" y="30" width="30" height="20" rx="5" fill="#f59e0b" />
+                                        <text x="85" y="40" text-anchor="middle" dy=".3em" font-size="12" fill="#1e1b4b">3</text>
+                                        <!-- Arrows -->
+                                        <path d="M25 40 H 35" marker-end="url(#arrowhead)" />
+                                        <path d="M55 40 H 70" marker-end="url(#arrowhead)" />
+                                        <defs>
+                                            <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="8" refY="3.5" orient="auto">
+                                                <polygon points="0 0, 10 3.5, 0 7" fill="#fbbf24" />
+                                            </marker>
+                                        </defs>
+                                    </svg>
+                                </div>
+                            </div>
+                        </section>
+                        
+                        <section class="pt-4 space-y-3">
+                            <h3 class="text-xl font-semibold mb-4 premium-gold text-arabic-key">المفاهيم الأساسية</h3>
+                            <div class="flex flex-wrap gap-4 justify-center">
+                                <div class="svg-container">
+                                    <span class="badge-arabic">طبق الأجار</span>
+                                    <svg width="100" height="60" viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg">
+                                        <rect x="10" y="10" width="80" height="40" rx="5" fill="#e5e7eb" stroke="#fbbf24" stroke-width="2"/>
+                                        <rect x="15" y="30" width="70" height="15" fill="#f59e0b" fill-opacity="0.6"/>
+                                        <circle cx="30" cy="37" r="3" fill="#ef4444"/>
+                                        <circle cx="70" cy="37" r="3" fill="#7c3aed"/>
+                                        <circle cx="50" cy="37" r="3" fill="#10b981"/>
+                                    </svg>
+                                </div>
+                                <div class="svg-container">
+                                    <span class="badge-arabic">العلاج الكيميائي</span>
+                                    <svg width="100" height="60" viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg">
+                                        <rect x="10" y="15" width="80" height="30" rx="15" fill="#7c3aed"/>
+                                        <circle cx="20" cy="30" r="5" fill="#fbbf24"/>
+                                        <circle cx="80" cy="30" r="5" fill="#ef4444"/>
+                                        <line x1="20" y1="30" x2="80" y2="30" stroke="#fbbf24" stroke-width="2" stroke-dasharray="2"/>
+                                    </svg>
+                                </div>
+                                <div class="svg-container">
+                                    <span class="badge-arabic">البنسلين</span>
+                                    <svg width="100" height="60" viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg">
+                                        <rect x="10" y="10" width="80" height="40" rx="10" fill="#a7f3d0" fill-opacity="0.3"/>
+                                        <rect x="20" y="20" width="60" height="20" rx="5" fill="#fbbf24"/>
+                                        <circle cx="50" cy="30" r="15" fill="#fbbf24"/>
+                                        <path d="M40 30 C 45 25, 55 25, 60 30" fill="none" stroke="#1f2937" stroke-width="3"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lecture 2: Viruses -->
+            <div class="bg-slate-800/70 rounded-2xl shadow-2xl overflow-hidden transform hover:scale-[1.02] transition duration-500 border-t-4 border-premium-gold">
+                <div class="accordion-header p-6 flex justify-between items-center bg-gray-900/50" data-target="lec2">
+                    <h2 class="text-2xl font-bold premium-gold text-english">Lecture 2: The Viral World</h2>
+                    <svg class="icon w-8 h-8 premium-gold transition-transform duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </div>
+                <div id="lec2" class="accordion-content">
+                    <div class="p-6 space-y-6">
+                        <section class="border-b border-gray-600 pb-4 text-english">
+                            <h3 class="text-xl font-semibold mb-3 text-white">Detailed English Summary</h3>
+                            <p class="text-gray-300 leading-relaxed mb-4">
+                                **Viruses** are defined as **obligate intracellular parasites**. They are non-cellular (acellular) infectious agents, meaning they lack their own metabolic machinery and can only replicate *inside* a living host cell. Their structure is minimal: genetic material (either DNA or RNA, but never both) enclosed within a protein coat called a **Capsid**.
+                            </p>
+                            <h4 class="text-lg font-bold premium-gold mb-2">The Destructive (Lytic) Life Cycle:</h4>
+                            <p class="text-gray-400 mb-4">
+                                This five-step process is aimed at rapidly producing new virions, culminating in the destruction of the host cell:
+                                <ol class="list-decimal list-inside ml-4 mt-2 space-y-1">
+                                    <li>**Attachment:** Specific binding to host cell receptors.</li>
+                                    <li>**Penetration:** Entry of the viral genome into the host.</li>
+                                    <li>**Biosynthesis:** Host machinery is hijacked to synthesize viral nucleic acids and proteins.</li>
+                                    <li>**Maturation (Assembly):** New viral components are assembled into complete virions.</li>
+                                    <li>**Release:** The host cell is lysed (bursts open) or buds, releasing thousands of new viruses.</li>
+                                </ol>
+                                <div class="mt-4 svg-container mx-auto">
+                                    <svg width="120" height="80" viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#fbbf24" stroke-width="2">
+                                        <!-- Cell -->
+                                        <rect x="5" y="20" width="110" height="40" rx="10" fill="#4c1d95" fill-opacity="0.3" stroke="#7c3aed" stroke-width="2"/>
+                                        <!-- Virus -->
+                                        <circle cx="15" cy="15" r="5" fill="#ef4444"/>
+                                        <line x1="15" y1="20" x2="15" y2="35" stroke="#ef4444" stroke-width="2"/>
+                                        <!-- 1. Attachment -->
+                                        <path d="M15 35 L15 50" stroke="#ef4444" stroke-width="2"/>
+                                        <!-- 2. Penetration (Inject DNA) -->
+                                        <path d="M25 40 L35 40" stroke="#facc15" stroke-width="2"/>
+                                        <path d="M35 40 L50 40" stroke="#a7f3d0" stroke-width="2"/>
+                                        <!-- 3. Biosynthesis -->
+                                        <circle cx="65" cy="30" r="3" fill="#ef4444"/>
+                                        <circle cx="75" cy="50" r="3" fill="#ef4444"/>
+                                        <!-- 4. Maturation -->
+                                        <rect x="85" y="25" width="10" height="10" fill="#ef4444"/>
+                                        <rect x="95" y="45" width="10" height="10" fill="#ef4444"/>
+                                        <!-- 5. Release -->
+                                        <path d="M100 40 L115 10" stroke="#facc15" stroke-width="2" marker-end="url(#arrowhead-lec2)"/>
+
+                                        <defs>
+                                            <marker id="arrowhead-lec2" markerWidth="10" markerHeight="7" refX="8" refY="3.5" orient="auto">
+                                                <polygon points="0 0, 10 3.5, 0 7" fill="#facc15" />
+                                            </marker>
+                                        </defs>
+                                    </svg>
+                                </div>
+                            </p>
+                            <h4 class="text-lg font-bold premium-gold mb-2">Oncogenic Viruses (Cancer):</h4>
+                            <p class="text-gray-400">
+                                Certain viruses can cause cancer by integrating their genetic material into the host cell's DNA. This disrupts genes that control cell growth (oncogenes and tumor suppressor genes). This leads to the three hallmarks of cancer: **Hyperplasia** (uncontrolled proliferation), **Anaplasia** (abnormal cell structure), and **Metastasis** (ability to spread).
+                            </p>
+                        </section>
+                        <section class="pt-4 space-y-3">
+                            <h3 class="text-xl font-semibold mb-4 premium-gold text-arabic-key">المفاهيم الأساسية</h3>
+                            <div class="flex flex-wrap gap-4 justify-center">
+                                <div class="svg-container">
+                                    <span class="badge-arabic">طفيليات إلزامية</span>
+                                    <svg width="100" height="60" viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg">
+                                        <rect x="10" y="10" width="80" height="40" rx="10" fill="#4c1d95" fill-opacity="0.2" stroke="#7c3aed" stroke-width="2"/>
+                                        <circle cx="50" cy="30" r="5" fill="#ef4444"/>
+                                        <line x1="50" y1="30" x2="50" y2="45" stroke="#ef4444" stroke-width="2"/>
+                                        <path d="M40 20 C 50 10, 60 10, 70 20" fill="none" stroke="#ef4444" stroke-width="2"/>
+                                    </svg>
+                                </div>
+                                <div class="svg-container">
+                                    <span class="badge-arabic">تحرير الفيروس</span>
+                                    <svg width="100" height="60" viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg">
+                                        <rect x="10" y="10" width="80" height="40" rx="10" fill="#4c1d95" fill-opacity="0.2" stroke="#7c3aed" stroke-width="2"/>
+                                        <circle cx="30" cy="30" r="5" fill="#ef4444"/>
+                                        <circle cx="70" cy="30" r="5" fill="#ef4444"/>
+                                        <circle cx="90" cy="5" r="5" fill="#fbbf24"/>
+                                        <path d="M85 10 L 95 10" stroke="#fbbf24" stroke-width="2" marker-end="url(#arrowhead-release)"/>
+                                        <defs>
+                                            <marker id="arrowhead-release" markerWidth="10" markerHeight="7" refX="8" refY="3.5" orient="auto">
+                                                <polygon points="0 0, 10 3.5, 0 7" fill="#fbbf24" />
+                                            </marker>
+                                        </defs>
+                                    </svg>
+                                </div>
+                                <div class="svg-container">
+                                    <span class="badge-arabic">الانبثاث (Metastasis)</span>
+                                    <svg width="100" height="60" viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="25" cy="30" r="10" fill="#f97316"/>
+                                        <circle cx="50" cy="20" r="10" fill="#f97316"/>
+                                        <circle cx="75" cy="40" r="10" fill="#f97316"/>
+                                        <path d="M75 40 L 95 5" stroke="#ef4444" stroke-width="3" stroke-dasharray="5,5"/>
+                                        <text x="50" y="55" text-anchor="middle" font-size="10" fill="#e5e7eb">Metastasis</text>
+                                    </svg>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lecture 3: Cellular Life & Transport -->
+            <div class="bg-slate-800/70 rounded-2xl shadow-2xl overflow-hidden transform hover:scale-[1.02] transition duration-500 border-t-4 border-premium-gold">
+                <div class="accordion-header p-6 flex justify-between items-center bg-gray-900/50" data-target="lec3">
+                    <h2 class="text-2xl font-bold premium-gold text-english">Lecture 3: Cellular Life & Transport</h2>
+                    <svg class="icon w-8 h-8 premium-gold transition-transform duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </div>
+                <div id="lec3" class="accordion-content">
+                    <div class="p-6 space-y-6">
+                        <section class="border-b border-gray-600 pb-4 text-english">
+                            <h3 class="text-xl font-semibold mb-3 text-white">Detailed English Summary</h3>
+                            <p class="text-gray-300 leading-relaxed mb-4">
+                                All cells share core properties: **Metabolism** (converting nutrients), **Growth** (increasing in number), and **Evolution**. The cell's function depends on **Compartmentalization**, using its membrane to separate internal chemistry from the external environment.
+                            </p>
+                            <h4 class="text-lg font-bold premium-gold mb-2">Prokaryotic Transport Systems:</h4>
+                            <ul class="list-disc list-inside text-gray-400 space-y-2 ml-4">
+                                <li>
+                                    **Simple Transport:** Driven by the Proton Motive Force (PMF).
+                                </li>
+                                <li>
+                                    **Group Translocation (PTS):** An advanced system (e.g., Phosphotransferase System) that *chemically modifies* the substrate (like phosphorylating glucose) as it passes through the membrane. This modification traps the nutrient inside and maintains a favorable concentration gradient.
+                                    <div class="mt-4 svg-container mx-auto">
+                                        <svg width="120" height="80" viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#fbbf24" stroke-width="2">
+                                            <!-- Membrane -->
+                                            <rect x="0" y="30" width="120" height="20" fill="#4c1d95" fill-opacity="0.5"/>
+                                            <!-- Glucose (Outside) -->
+                                            <circle cx="15" cy="15" r="5" fill="#fbbf24"/>
+                                            <text x="15" y="10" font-size="8" fill="#e5e7eb">Glucose</text>
+                                            <!-- Carrier Protein (PTS) -->
+                                            <rect x="40" y="25" width="20" height="30" rx="5" fill="#7c3aed"/>
+                                            <!-- Glucose passing through -->
+                                            <circle cx="50" cy="40" r="5" fill="#f59e0b"/>
+                                            <!-- Phosphate Group (Inside) -->
+                                            <rect x="70" y="60" width="10" height="10" fill="#10b981"/>
+                                            <!-- Phosphorylated Glucose (Inside) -->
+                                            <path d="M50 40 L 75 65" stroke="#a7f3d0" stroke-width="2"/>
+                                            <circle cx="75" cy="65" r="5" fill="#10b981"/>
+                                            <text x="95" y="70" font-size="8" fill="#e5e7eb">G-6-P</text>
+                                        </svg>
+                                    </div>
+                                </li>
+                            </ul>
+                            <h4 class="text-lg font-bold premium-gold mb-2">Protein Secretion Systems:</h4>
+                            <p class="text-gray-400">
+                                To export proteins, bacteria use:
+                                <br>
+                                **Sec system:** Exports periplasmic enzymes and general proteins.
+                                <br>
+                                **Type III Secretion System (T3SS):** A specialized "molecular syringe" used by Gram-negative pathogens to inject virulence factors (toxins) directly from the bacterial cytoplasm into the host cell cytoplasm, bypassing the external environment entirely.
+                                <div class="mt-4 svg-container mx-auto">
+                                    <svg width="120" height="80" viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#e5e7eb" stroke-width="2">
+                                        <!-- Bacterial Cell -->
+                                        <rect x="5" y="20" width="40" height="40" rx="5" fill="#334155"/>
+                                        <text x="25" y="40" text-anchor="middle" font-size="8" fill="#e5e7eb">Bacterium</text>
+                                        <!-- Host Cell -->
+                                        <rect x="75" y="20" width="40" height="40" rx="5" fill="#4c1d95" fill-opacity="0.3"/>
+                                        <text x="95" y="40" text-anchor="middle" font-size="8" fill="#e5e7eb">Host Cell</text>
+                                        <!-- T3SS Needle -->
+                                        <line x1="45" y1="40" x2="75" y2="40" stroke="#ef4444" stroke-width="3"/>
+                                        <!-- Toxin (Injected) -->
+                                        <circle cx="85" cy="40" r="3" fill="#fbbf24"/>
+                                    </svg>
+                                </div>
+                            </p>
+                        </section>
+                        <section class="pt-4 space-y-3">
+                            <h3 class="text-xl font-semibold mb-4 premium-gold text-arabic-key">المفاهيم الأساسية</h3>
+                            <div class="flex flex-wrap gap-4 justify-center">
+                                <div class="svg-container">
+                                    <span class="badge-arabic">التجزئة الخلوية</span>
+                                    <svg width="100" height="60" viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg">
+                                        <rect x="10" y="10" width="80" height="40" rx="10" fill="#4c1d95" fill-opacity="0.2" stroke="#7c3aed" stroke-width="2"/>
+                                        <circle cx="30" cy="30" r="10" fill="#fbbf24" fill-opacity="0.5"/>
+                                        <circle cx="70" cy="30" r="10" fill="#a7f3d0" fill-opacity="0.5"/>
+                                        <line x1="30" y1="30" x2="70" y2="30" stroke="#f59e0b" stroke-width="2" stroke-dasharray="5,5"/>
+                                    </svg>
+                                </div>
+                                <div class="svg-container">
+                                    <span class="badge-arabic">نظام Sec للنقل</span>
+                                    <svg width="100" height="60" viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg">
+                                        <rect x="10" y="20" width="80" height="20" fill="#4c1d95" fill-opacity="0.5"/>
+                                        <rect x="40" y="15" width="20" height="30" rx="5" fill="#7c3aed"/>
+                                        <circle cx="50" cy="10" r="5" fill="#fbbf24"/>
+                                        <path d="M50 10 V 45" stroke="#fbbf24" stroke-width="3" marker-end="url(#arrowhead-sec)"/>
+                                        <defs>
+                                            <marker id="arrowhead-sec" markerWidth="10" markerHeight="7" refX="8" refY="3.5" orient="auto">
+                                                <polygon points="0 0, 10 3.5, 0 7" fill="#fbbf24" />
+                                            </marker>
+                                        </defs>
+                                    </svg>
+                                </div>
+                                <div class="svg-container">
+                                    <span class="badge-arabic">عوامل الفوعة (Toxins)</span>
+                                    <svg width="100" height="60" viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="50" cy="30" r="25" fill="#ef4444" fill-opacity="0.4"/>
+                                        <circle cx="35" cy="20" r="5" fill="#fbbf24"/>
+                                        <circle cx="65" cy="40" r="5" fill="#fbbf24"/>
+                                        <circle cx="50" cy="50" r="5" fill="#fbbf24"/>
+                                        <path d="M35 20 L 50 30 L 65 40 Z" fill="none" stroke="#fbbf24" stroke-width="2" stroke-dasharray="3,3"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lecture 4: Bacterial Surface & Survival -->
+            <div class="bg-slate-800/70 rounded-2xl shadow-2xl overflow-hidden transform hover:scale-[1.02] transition duration-500 border-t-4 border-premium-gold">
+                <div class="accordion-header p-6 flex justify-between items-center bg-gray-900/50" data-target="lec4">
+                    <h2 class="text-2xl font-bold premium-gold text-english">Lecture 4: Bacterial Surface & Survival</h2>
+                    <svg class="icon w-8 h-8 premium-gold transition-transform duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </div>
+                <div id="lec4" class="accordion-content">
+                    <div class="p-6 space-y-6">
+                        <section class="border-b border-gray-600 pb-4 text-english">
+                            <h3 class="text-xl font-semibold mb-3 text-white">Detailed English Summary</h3>
+                            <p class="text-gray-300 leading-relaxed mb-4">
+                                Bacterial surfaces feature structures critical for survival and interaction with the environment:
+                            </p>
+                            <h4 class="text-lg font-bold premium-gold mb-2">Surface Layers:</h4>
+                            <ul class="list-disc list-inside text-gray-400 space-y-2 ml-4">
+                                <li>
+                                    **S-layer:** A paracrystalline, protein-based layer, common in Archaea, providing protection from osmosis.
+                                </li>
+                                <li>
+                                    **Capsule:** A highly organized, tightly bound layer that protects against phagocytosis (being eaten by immune cells) and desiccation (drying out).
+                                    <div class="mt-4 svg-container mx-auto">
+                                        <svg width="120" height="80" viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#e5e7eb" stroke-width="2">
+                                            <!-- Bacterium with Capsule -->
+                                            <circle cx="40" cy="40" r="20" fill="#10b981" fill-opacity="0.4" stroke="#10b981"/>
+                                            <circle cx="40" cy="40" r="10" fill="#334155"/>
+                                            <text x="40" y="40" text-anchor="middle" dy=".3em" font-size="8" fill="#e5e7eb">Bacteria</text>
+                                            <!-- Phagocyte -->
+                                            <path d="M80 40 C 90 20, 110 30, 100 60, 80 70 Z" fill="#fbbf24" fill-opacity="0.3" stroke="#fbbf24"/>
+                                            <text x="95" y="40" text-anchor="middle" font-size="8" fill="#e5e7eb">Immune Cell</text>
+                                            <!-- Attempted engulfment (blocked) -->
+                                            <path d="M60 40 C 65 30, 75 30, 80 40" stroke="#ef4444" stroke-width="3" stroke-dasharray="5,5"/>
+                                        </svg>
+                                    </div>
+                                </li>
+                                <li>
+                                    **Slime Layer:** A loose, disorganized layer easily shed by the cell.
+                                </li>
+                            </ul>
+                            <h4 class="text-lg font-bold premium-gold mb-2">The Ultimate Survival Mechanism: Endospores</h4>
+                            <p class="text-gray-400">
+                                Certain bacteria (*Bacillus*, *Clostridium*) form highly resistant **Endospores** to survive extreme conditions (heat up to **150°C**, chemicals, radiation). This resistance is due to:
+                                <ul class="list-disc list-inside text-gray-400 space-y-1 ml-4 mt-2">
+                                    <li>**Dipicolinic Acid (DPA):** Binds free water, dehydrating the spore core, and intercalates with DNA to stabilize it against heat denaturation.</li>
+                                    <li>**SASPs (Small Acid-Soluble Proteins):** Bind tightly to the DNA, protecting it from UV radiation and damage, and also serve as a carbon/energy source during germination.</li>
+                                </ul>
+                                <div class="mt-4 svg-container mx-auto">
+                                    <svg width="120" height="80" viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#e5e7eb" stroke-width="2">
+                                        <!-- Endospore Layers -->
+                                        <circle cx="60" cy="40" r="30" fill="#1f2937"/>
+                                        <circle cx="60" cy="40" r="25" fill="#334155"/>
+                                        <circle cx="60" cy="40" r="15" fill="#4c1d95"/>
+                                        <!-- DNA Core (SASPs Protection) -->
+                                        <rect x="50" y="35" width="20" height="10" fill="#ef4444"/>
+                                        <text x="60" y="42" text-anchor="middle" font-size="8" fill="#e5e7eb">DNA</text>
+                                        <!-- DPA representation -->
+                                        <path d="M40 10 L 50 35 M80 10 L 70 35" stroke="#10b981" stroke-width="2"/>
+                                        <text x="35" y="15" font-size="8" fill="#10b981">DPA</text>
+                                    </svg>
+                                </div>
+                            </p>
+                        </section>
+                        <section class="pt-4 space-y-3">
+                            <h3 class="text-xl font-semibold mb-4 premium-gold text-arabic-key">المفاهيم الأساسية</h3>
+                            <div class="flex flex-wrap gap-4 justify-center">
+                                <div class="svg-container">
+                                    <span class="badge-arabic">طبقة S-Layer</span>
+                                    <svg width="100" height="60" viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg">
+                                        <rect x="10" y="10" width="80" height="40" fill="#334155"/>
+                                        <rect x="15" y="15" width="20" height="20" fill="#fbbf24" rx="3"/>
+                                        <rect x="40" y="15" width="20" height="20" fill="#fbbf24" rx="3"/>
+                                        <rect x="65" y="15" width="20" height="20" fill="#fbbf24" rx="3"/>
+                                        <rect x="25" y="30" width="20" height="20" fill="#fbbf24" rx="3"/>
+                                        <rect x="55" y="30" width="20" height="20" fill="#fbbf24" rx="3"/>
+                                    </svg>
+                                </div>
+                                <div class="svg-container">
+                                    <span class="badge-arabic">السوط (Flagella)</span>
+                                    <svg width="100" height="60" viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg">
+                                        <rect x="10" y="25" width="30" height="10" fill="#4c1d95"/>
+                                        <rect x="40" y="20" width="10" height="20" fill="#7c3aed"/>
+                                        <path d="M50 30 C 60 25, 70 35, 90 30" stroke="#a7f3d0" stroke-width="3" fill="none"/>
+                                        <circle cx="10" cy="30" r="5" fill="#ef4444"/>
+                                    </svg>
+                                </div>
+                                <div class="svg-container">
+                                    <span class="badge-arabic">بروتينات SASPs</span>
+                                    <svg width="100" height="60" viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M20 20 C 40 10, 60 10, 80 20" stroke="#ef4444" stroke-width="5" fill="none"/>
+                                        <path d="M15 30 C 40 45, 60 45, 85 30" stroke="#fbbf24" stroke-width="5" fill="none"/>
+                                        <text x="50" y="50" text-anchor="middle" font-size="10" fill="#e5e7eb">DNA Binding</text>
+                                    </svg>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lecture 5: Fungi: Mycology -->
+            <div class="bg-slate-800/70 rounded-2xl shadow-2xl overflow-hidden transform hover:scale-[1.02] transition duration-500 border-t-4 border-premium-gold">
+                <div class="accordion-header p-6 flex justify-between items-center bg-gray-900/50" data-target="lec5">
+                    <h2 class="text-2xl font-bold premium-gold text-english">Lecture 5: Fungi: Mycology</h2>
+                    <svg class="icon w-8 h-8 premium-gold transition-transform duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </div>
+                <div id="lec5" class="accordion-content">
+                    <div class="p-6 space-y-6">
+                        <section class="border-b border-gray-600 pb-4 text-english">
+                            <h3 class="text-xl font-semibold mb-3 text-white">Detailed English Summary</h3>
+                            <p class="text-gray-300 leading-relaxed mb-4">
+                                **Mycology** is the study of Fungi, a diverse kingdom of non-photosynthetic **Eukaryotes** (possessing a true nucleus and organelles). They store excess carbohydrates as **Glycogen**, and their rigid cell wall is primarily composed of **Chitin** (not peptidoglycan).
+                                <div class="mt-4 svg-container mx-auto">
+                                    <svg width="120" height="80" viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#e5e7eb" stroke-width="2">
+                                        <!-- Fungal Cell Outline -->
+                                        <ellipse cx="60" cy="40" rx="40" ry="30" fill="#10b981" fill-opacity="0.2" stroke="#10b981"/>
+                                        <!-- Chitin Wall -->
+                                        <path d="M20 40 C 40 10, 80 10, 100 40 L 90 40 C 70 20, 50 20, 30 40 Z" fill="#fbbf24" fill-opacity="0.5"/>
+                                        <path d="M20 40 C 40 70, 80 70, 100 40" stroke="#fbbf24" stroke-width="2" stroke-dasharray="4,2"/>
+                                        <text x="60" y="55" text-anchor="middle" font-size="8" fill="#e5e7eb">Chitin Wall</text>
+                                    </svg>
+                                </div>
+                            </p>
+                            <h4 class="text-lg font-bold premium-gold mb-2">Key Fungal Forms:</h4>
+                            <ul class="list-disc list-inside text-gray-400 space-y-2 ml-4">
+                                <li>**Yeasts:** Unicellular fungi that reproduce by budding.</li>
+                                <li>**Molds:** Multicellular fungi that form thread-like filaments called **Hyphae**. A mass of hyphae is a **Mycelium**.</li>
+                                <li>**Dimorphic Fungi:** Fungi that switch between yeast (at body temp, 37°C) and mold (at room temp, 25°C) forms. This dimorphism is a key virulence factor for many human pathogens.</li>
+                            </ul>
+                            <h4 class="text-lg font-bold premium-gold mb-2">Human Interactions:</h4>
+                            <p class="text-gray-400">
+                                Fungi are vital decomposers ("nature's recyclers") and sources of antibiotics (Penicillin). However, they also cause human and animal diseases known as **Mycoses**, which are classified by the depth of tissue penetration (Superficial, Cutaneous, Subcutaneous, Systemic).
+                            </p>
+                        </section>
+                        <section class="pt-4 space-y-3">
+                            <h3 class="text-xl font-semibold mb-4 premium-gold text-arabic-key">المفاهيم الأساسية</h3>
+                            <div class="flex flex-wrap gap-4 justify-center">
+                                <div class="svg-container">
+                                    <span class="badge-arabic">ثنائية الشكل (Dimorphic)</span>
+                                    <svg width="100" height="60" viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="30" cy="30" r="10" fill="#ef4444"/>
+                                        <text x="30" y="50" text-anchor="middle" font-size="10" fill="#e5e7eb">Yeast</text>
+                                        <path d="M55 20 L 70 20 L 70 40 L 85 40" stroke="#06b6d4" stroke-width="2"/>
+                                        <text x="70" y="50" text-anchor="middle" font-size="10" fill="#e5e7eb">Mold</text>
+                                        <path d="M40 30 H 60" stroke="#a7f3d0" stroke-width="2" stroke-dasharray="3,3"/>
+                                    </svg>
+                                </div>
+                                <div class="svg-container">
+                                    <span class="badge-arabic">التكاثر (Spore)</span>
+                                    <svg width="100" height="60" viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg">
+                                        <rect x="20" y="30" width="10" height="20" fill="#10b981"/>
+                                        <rect x="70" y="30" width="10" height="20" fill="#10b981"/>
+                                        <path d="M25 30 L 75 30" stroke="#a7f3d0" stroke-width="2"/>
+                                        <circle cx="25" cy="20" r="5" fill="#fbbf24"/>
+                                        <circle cx="75" cy="20" r="5" fill="#fbbf24"/>
+                                        <path d="M25 25 V 30" stroke="#fbbf24" stroke-width="2"/>
+                                        <path d="M75 25 V 30" stroke="#fbbf24" stroke-width="2"/>
+                                    </svg>
+                                </div>
+                                <div class="svg-container">
+                                    <span class="badge-arabic">الأمراض الفطرية (Mycoses)</span>
+                                    <svg width="100" height="60" viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg">
+                                        <rect x="10" y="10" width="80" height="40" rx="10" fill="#4c1d95" fill-opacity="0.2"/>
+                                        <rect x="20" y="15" width="60" height="30" rx="5" fill="#ef4444" fill-opacity="0.4"/>
+                                        <path d="M30 20 L 70 20 L 70 40 L 30 40 Z" fill="none" stroke="#f97316" stroke-width="2"/>
+                                        <text x="50" y="30" text-anchor="middle" font-size="8" fill="#e5e7eb">Systemic</text>
+                                    </svg>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+
+            <p class="text-center text-gray-500 mt-10 p-4">Click on lecture titles to expand the dynamic content.</p>
+        </main>
+    </div>
+
+    <!-- تنسيقات العناصر الصغيرة (Badges) مع تصميم جديد -->
+    <style>
+        /* (تم تضمينها في الـ <head> الرئيسي لضمان الأداء) */
+    </style>
+
+    <script>
+        // كود JavaScript لتحقيق التفاعل والحركة الديناميكية (Accordion)
+        document.addEventListener('DOMContentLoaded', () => {
+            const headers = document.querySelectorAll('.accordion-header');
+
+            headers.forEach(header => {
+                const targetId = header.getAttribute('data-target');
+                const content = document.getElementById(targetId);
+
+                // افتح المحاضرة الأولى واضبط حالتها
+                if (targetId === 'lec1') {
+                    header.classList.add('active');
+                    // هنا نضبط الارتفاع ديناميكياً لتجنب مشاكل التجاوب
+                    content.style.maxHeight = content.scrollHeight + "px";
+                    content.style.paddingTop = '1.5rem';
+                    content.style.paddingBottom = '1.5rem';
+                } else {
+                    content.style.maxHeight = '0';
+                    content.style.paddingTop = '0';
+                    content.style.paddingBottom = '0';
+                    header.classList.remove('active');
+                }
+
+                header.addEventListener('click', () => {
+                    const isActive = header.classList.contains('active');
+                    
+                    // إغلاق كل الأقسام أولاً
+                    headers.forEach(h => {
+                        h.classList.remove('active');
+                        const hTargetId = h.getAttribute('data-target');
+                        const hContent = document.getElementById(hTargetId);
+                        hContent.style.maxHeight = '0';
+                        hContent.style.paddingTop = '0';
+                        hContent.style.paddingBottom = '0';
+                    });
+
+                    if (!isActive) {
+                        // فتح القسم المحدد
+                        header.classList.add('active');
+                        // نستخدم ScrollHeight لضبط الارتفاع ديناميكيا
+                        // يجب إعادة حسابه هنا لضمان الارتفاع الصحيح بعد الفتح
+                        content.style.maxHeight = 'none'; // لإعادة حساب الارتفاع الصحيح
+                        content.style.maxHeight = content.scrollHeight + "px";
+                        content.style.paddingTop = '1.5rem';
+                        content.style.paddingBottom = '1.5rem';
+
+                        // التأكد من التمرير إلى الرؤية بعد الفتح
+                        setTimeout(() => {
+                             header.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }, 500);
+                       
+                    }
+                });
+            });
+
+            // دالة لضبط ارتفاع العنصر عند تغيير حجم النافذة لضمان استجابة التصميم
+            function adjustHeights() {
+                headers.forEach(header => {
+                    if (header.classList.contains('active')) {
+                        const targetId = header.getAttribute('data-target');
+                        const content = document.getElementById(targetId);
+                        // إعادة حساب الارتفاع عند تغيير الحجم
+                        content.style.maxHeight = 'none'; 
+                        content.style.maxHeight = content.scrollHeight + "px";
+                    }
+                });
+            }
+
+            // الاستماع لحدث تغيير حجم النافذة
+            window.addEventListener('resize', adjustHeights);
+            window.addEventListener('load', adjustHeights);
+        });
+    </script>
+
+</body>
+</html>
